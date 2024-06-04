@@ -32,6 +32,9 @@ class CharactersFragment : Fragment(), OnItemClick {
         loadList()
         val adapter = CharacterAdapter(rvList, this)
         binding.charactersRv.adapter = adapter
+        binding.screenNameTv.setOnClickListener {
+            findNavController().navigate(R.id.testFragment)  // ТОЖЕ ПЕРЕХОД НЕ РАБОТАЕТ, ХЗ КРЧ ТОГДА
+        }
     }
 
     private fun loadList() {

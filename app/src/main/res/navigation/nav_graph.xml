@@ -16,5 +16,10 @@
         android:name="com.example.finalramis.fragments.CharacterDetailsFragment"
         android:label="fragment_character_detail"
         tools:layout="@layout/fragment_characters_details" />
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.finalramis.fragments.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
 
 </navigation>
