@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="152dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:strokeWidth="1dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/avatar_item_img"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:scaleType="centerCrop"
+                tools:src="@color/black" />
+
+            <TextView
+                android:id="@+id/status_item_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/avatar_item_img"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                tools:text="Alive" />
+
+            <TextView
+                android:id="@+id/name_item_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/status_item_tv"
+                android:layout_alignStart="@id/status_item_tv"
+                android:maxEms="24"
+                android:textSize="16sp"
+                tools:text="Sultan Dzhumaliev" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</FrameLayout>
