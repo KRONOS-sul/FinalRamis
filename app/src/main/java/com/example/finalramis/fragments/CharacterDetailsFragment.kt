@@ -24,7 +24,12 @@ class CharacterDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val character =
-            requireArguments().getString("character")
+            requireArguments().getSerializable("character") as CharacterEntity
+        with(binding) {
+            Glide.with(avatarImg).load(character.avatar).into(avatarImg)
+            nameTv.text = character.name
+            statusTv.text = character.status
+        }
 
     }
 
