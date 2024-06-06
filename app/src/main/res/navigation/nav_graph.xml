@@ -9,17 +9,21 @@
         android:id="@+id/CharacterFragment"
         android:name="com.example.finalramis.fragments.CharactersFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_characters"/>
+        tools:layout="@layout/fragment_characters">
+
+        <action
+            android:id="@+id/action_CharacterFragment_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="com.example.finalramis.fragments.CharacterDetailsFragment"
         android:label="fragment_character_detail"
-        tools:layout="@layout/fragment_characters_details" />
-    <fragment
-        android:id="@+id/testFragment"
-        android:name="com.example.finalramis.fragments.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+        tools:layout="@layout/fragment_characters_details" >
+        <argument
+            android:name="character"
+            app:argType="com.example.finalramis.entities.CharacterEntity" />
+    </fragment>
 
 </navigation>

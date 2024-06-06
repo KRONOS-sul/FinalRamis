@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.finalramis.OnItemClick
-import com.example.finalramis.R
 import com.example.finalramis.adapter.CharacterAdapter
 import com.example.finalramis.databinding.FragmentCharactersBinding
 import com.example.finalramis.entities.CharacterEntity
@@ -32,9 +30,6 @@ class CharactersFragment : Fragment(), OnItemClick {
         loadList()
         val adapter = CharacterAdapter(rvList, this)
         binding.charactersRv.adapter = adapter
-        binding.screenNameTv.setOnClickListener {
-            findNavController().navigate(R.id.testFragment)  // ТОЖЕ ПЕРЕХОД НЕ РАБОТАЕТ, ХЗ КРЧ ТОГДА
-        }
     }
 
     private fun loadList() {
@@ -63,7 +58,7 @@ class CharactersFragment : Fragment(), OnItemClick {
 
     override fun onItemClick(character: CharacterEntity) {
         findNavController().navigate(
-            R.id.characterDetailsFragment, bundleOf("character" to character)
+            CharactersFragmentDirections.actionCharacterFragmentToCharacterDetailsFragment(character)
         )
     }
 

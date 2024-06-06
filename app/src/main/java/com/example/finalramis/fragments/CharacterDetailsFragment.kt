@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.finalramis.databinding.FragmentCharactersDetailsBinding
-import com.example.finalramis.entities.CharacterEntity
 
 class CharacterDetailsFragment : Fragment() {
     private lateinit var binding: FragmentCharactersDetailsBinding
+    private lateinit var safeArgs: CharacterDetailsFragmentArgs
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,12 +23,13 @@ class CharacterDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val character =
-            requireArguments().getSerializable("character") as CharacterEntity
+        arguments?.let {
+            safeArgs = CharacterDetailsFragmentArgs.fromBundle(it)
+        }
         with(binding) {
-            Glide.with(avatarImg).load(character.avatar).into(avatarImg)
-            nameTv.text = character.name
-            statusTv.text = character.status
+            Glide.with(avatarImg).load(safeArgs.character.avatar).into(avatarImg)
+            nameTv.text = safeArgs.character.name
+            statusTv.text = safeArgs.character.status
         }
 
     }
